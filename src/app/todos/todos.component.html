@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Summary</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todoArr; let i = index;">
+            <td>{{i}}</td>
+            <td>{{todo.description}}</td>
+            <td>{{todo.summary}}</td>
+            <td>
+                <button class="delete" (click)="deleteTodo(todo.id)">DELETE</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button onclick="window.location.reload()">Refresh if Delete or Add!</button>
+<h2>Todo</h2>
+<form [formGroup]="addTodo" (submit)="createTodo()">
+    <label for="desc">Description:</label><br>
+    <input type="text" id="desc" name="desc" formControlName="description"><br>
+    <label for="sum">Summary:</label><br>
+    <input type="text" id="desc" name="desc" formControlName="summary"><br>
+    <button>Add</button>
+</form>
